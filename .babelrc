@@ -1,0 +1,12 @@
+{
+	"presets": [
+		[ "es2015", { "modules": false } ],
+		"stage-1"
+	],
+	"plugins": [
+		"lodash",
+		"transform-runtime",
+		"syntax-jsx",
+		[ "transform-react-jsx", { "pragma": "h" } ]
+	]
+}
