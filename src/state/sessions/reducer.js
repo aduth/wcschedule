@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { combineReducers } from 'redux';
-import { map, pick } from 'lodash';
+import { map, keyBy, pick } from 'lodash';
 
 /**
  * Internal dependencies
@@ -41,12 +41,9 @@ function items( state = {}, action ) {
 				...state,
 				[ camp ]: {
 					...state[ camp ],
-					[ year ]: map( sessions, ( session ) => {
-						return {
-							id: session.ID,
-							title: session.title
-						};
-					} )
+					[ year ]: keyBy( map( sessions, ( session ) => {
+						return pick( session, 'title', 'slug' );
+					} ), 'slug' )
 				}
 			};
 	}

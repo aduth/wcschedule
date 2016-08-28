@@ -3,6 +3,7 @@
  */
 import { h } from 'preact';
 import { connect } from 'preact-redux';
+import { map } from 'lodash';
 
 /**
  * Internal dependencies
@@ -17,8 +18,8 @@ function Home( { sessions = [] } ) {
 				camp="cincinnati"
 				year={ 2016 } />
 			<ul>
-				{ sessions.map( ( session ) => (
-					<li key={ session.id }>
+				{ map( sessions, ( session ) => (
+					<li key={ session.slug }>
 						{ session.title }
 					</li>
 				) ) }
