@@ -18,7 +18,7 @@ function Home( { sessions = [] } ) {
 				year={ 2016 } />
 			<ul>
 				{ sessions.map( ( session ) => (
-					<li key={ session.ID }>
+					<li key={ session.id }>
 						{ session.title }
 					</li>
 				) ) }

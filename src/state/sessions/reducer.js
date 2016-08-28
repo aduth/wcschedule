@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { combineReducers } from 'redux';
+import { map, pick } from 'lodash';
 
 /**
  * Internal dependencies
@@ -40,7 +41,12 @@ export function items( state = {}, action ) {
 				...state,
 				[ camp ]: {
 					...state[ camp ],
-					[ year ]: sessions
+					[ year ]: map( sessions, ( session ) => {
+						return {
+							id: session.ID,
+							title: session.title
+						};
+					} )
 				}
 			};
 	}
