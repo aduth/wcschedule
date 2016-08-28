@@ -14,7 +14,7 @@ import {
 	SESSIONS_REQUEST_SUCCESS
 } from 'state/action-types';
 
-export function requesting( state = {}, action ) {
+function requesting( state = {}, action ) {
 	const { type } = action;
 	switch ( type ) {
 		case SESSIONS_REQUEST:
@@ -33,7 +33,7 @@ export function requesting( state = {}, action ) {
 	return state;
 }
 
-export function items( state = {}, action ) {
+function items( state = {}, action ) {
 	switch ( action.type ) {
 		case SESSIONS_RECEIVE:
 			const { camp, year, sessions } = action;
