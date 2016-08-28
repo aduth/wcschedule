@@ -20,14 +20,22 @@ export function receiveSessions( camp, year, sessions ) {
 
 export function requestSessions( camp, year ) {
 	return async ( dispatch ) => {
-		dispatch( { type: SESSIONS_REQUEST } );
+		dispatch( {
+			type: SESSIONS_REQUEST,
+			camp,
+			year
+		} );
 		const apiRoot = getCampApiRoot( camp, year );
 
 		try {
 			const response = await fetch( `${ apiRoot }/posts/?type=wcb_session` );
 			const sessions = await response.json();
-			dispatch( { type: SESSIONS_REQUEST_SUCCESS } );
 			dispatch( receiveSessions( camp, year, sessions ) );
+			dispatch( {
+				type: SESSIONS_REQUEST_SUCCESS,
+				camp,
+				year
+			} );
 		} catch ( error ) {
 			dispatch( {
 				type: SESSIONS_REQUEST_FAILURE,
