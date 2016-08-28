@@ -8,8 +8,10 @@ import { combineReducers } from 'redux';
  */
 import route from './route/reducer';
 import sessions from './sessions/reducer';
+import speakers from './speakers/reducer';
 
 export default combineReducers( {
 	route,
-	sessions
+	sessions,
+	speakers
 } );
