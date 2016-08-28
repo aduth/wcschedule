@@ -1,3 +1,3 @@
-export function getCurrentRouteUrl( state ) {
-	return state.route.href;
+export function getRouteHandler( state ) {
+	return state.route.handler;
 }

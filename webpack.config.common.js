@@ -17,7 +17,10 @@ module.exports = {
 	},
 	resolve: {
 		modules: [ 'node_modules', 'src' ],
-		extensions: [ '', '.js' ]
+		extensions: [ '', '.js' ],
+		alias: {
+			'redux-routing': 'redux-routing/src'
+		}
 	},
 	plugins: [
 		new webpack.DefinePlugin( {
@@ -43,7 +46,10 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js$/,
-				include: __dirname + '/src',
+				include: [
+					__dirname + '/src',
+					__dirname + '/node_modules/redux-routing'
+				],
 				loader: 'babel',
 				query: {
 					cacheDirectory: true
