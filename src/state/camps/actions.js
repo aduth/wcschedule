@@ -10,7 +10,7 @@ import {
 
 export function receiveCamps( camps ) {
 	return {
-		CAMPS_RECEIVE,
+		type: CAMPS_RECEIVE,
 		camps
 	};
 }
