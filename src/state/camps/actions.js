@@ -26,7 +26,10 @@ export function requestCamps() {
 			dispatch( receiveCamps( camps ) );
 			dispatch( { type: CAMPS_REQUEST_SUCCESS } );
 		} catch ( error ) {
-			dispatch( { type: CAMPS_REQUEST_FAILURE } );
+			dispatch( {
+				type: CAMPS_REQUEST_FAILURE,
+				error
+			} );
 		}
 	};
 }
