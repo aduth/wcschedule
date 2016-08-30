@@ -7,6 +7,7 @@ import {
 	CAMPS_REQUEST_FAILURE,
 	CAMPS_REQUEST_SUCCESS
 } from 'state/action-types';
+import { CAMPS_SOURCE } from 'constant';
 
 export function receiveCamps( camps ) {
 	return {
@@ -20,8 +21,7 @@ export function requestCamps() {
 		dispatch( { type: CAMPS_REQUEST } );
 
 		try {
-			const url = 'https://central.wordcamp.org/wp-json/posts?type=wordcamp';
-			const response = await fetch( url );
+			const response = await fetch( CAMPS_SOURCE );
 			const camps = await response.json();
 			dispatch( receiveCamps( camps ) );
 			dispatch( { type: CAMPS_REQUEST_SUCCESS } );
