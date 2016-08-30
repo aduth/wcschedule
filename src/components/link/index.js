@@ -11,11 +11,11 @@ import { navigate } from 'state/route/actions';
 
 function Link( props ) {
 	function onNavigate( event ) {
-		props.dispatch( navigate( props.href ) );
+		props.navigate( props.href );
 		event.preventDefault();
 	}
 
 	return <a { ...props } onClick={ onNavigate } />;
 }
 
-export default connect()( Link );
+export default connect( null, { navigate } )( Link );
