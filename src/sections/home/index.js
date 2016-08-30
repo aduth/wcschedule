@@ -9,6 +9,7 @@ import { map } from 'lodash';
  * Internal dependencies
  */
 import QueryCamps from 'components/query-camps';
+import Link from 'components/link';
 import { getCamps } from 'state/camps/selectors';
 
 function Home( { camps } ) {
@@ -18,7 +19,9 @@ function Home( { camps } ) {
 			<ul>
 				{ map( camps, ( camp ) => (
 					<li key={ camp.slug }>
-						{ camp.title }
+						<Link href={ `/camp/${ camp.year }/${ camp.subdomain }` }>
+							{ camp.title }
+						</Link>
 					</li>
 				) ) }
 			</ul>
