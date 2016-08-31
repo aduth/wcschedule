@@ -11,6 +11,7 @@ import { map } from 'lodash';
 import QuerySessions from 'components/query-sessions';
 import { getSessions } from 'state/sessions/selectors';
 import { getRouteParam } from 'state/route/selectors';
+import { decode } from 'lib/entities';
 
 function Camp( { sessions = [], camp, year } ) {
 	return (
@@ -21,7 +22,7 @@ function Camp( { sessions = [], camp, year } ) {
 			<ul>
 				{ map( sessions, ( session ) => (
 					<li key={ session.slug }>
-						{ session.title }
+						{ decode( session.title ) }
 					</li>
 				) ) }
 			</ul>
