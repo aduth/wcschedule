@@ -11,5 +11,5 @@ import Camp from 'sections/camp';
 
 export default [
 	route( '/', Home ),
-	route( '/camp/:year/:camp', Camp )
+	route( '/camp/:year/:camp', Camp ),
 ];

@@ -3,7 +3,7 @@
  */
 import {
 	NAVIGATE,
-	REPLACE
+	REPLACE,
 } from 'redux-routing/constants';
 import { match, reducer } from 'redux-routing';
 
@@ -20,7 +20,7 @@ export default function( state = {}, action ) {
 		case REPLACE:
 			return {
 				...state,
-				...match( action.href, routes )
+				...match( action.href, routes ),
 			};
 	}
 

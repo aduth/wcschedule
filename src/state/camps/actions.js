@@ -5,14 +5,14 @@ import {
 	CAMPS_RECEIVE,
 	CAMPS_REQUEST,
 	CAMPS_REQUEST_FAILURE,
-	CAMPS_REQUEST_SUCCESS
+	CAMPS_REQUEST_SUCCESS,
 } from 'state/action-types';
 import { CAMPS_SOURCE } from 'constant';
 
 export function receiveCamps( camps ) {
 	return {
 		type: CAMPS_RECEIVE,
-		camps
+		camps,
 	};
 }
 
@@ -28,7 +28,7 @@ export function requestCamps() {
 		} catch ( error ) {
 			dispatch( {
 				type: CAMPS_REQUEST_FAILURE,
-				error
+				error,
 			} );
 		}
 	};

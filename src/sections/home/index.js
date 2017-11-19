@@ -31,6 +31,6 @@ function Home( { camps } ) {
 
 export default connect( ( state ) => {
 	return {
-		camps: getCamps( state )
+		camps: getCamps( state ),
 	};
 } )( Home );

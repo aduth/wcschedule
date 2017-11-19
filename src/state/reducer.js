@@ -15,5 +15,5 @@ export default combineReducers( {
 	camps,
 	route,
 	sessions,
-	speakers
+	speakers,
 } );

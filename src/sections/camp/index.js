@@ -37,6 +37,6 @@ export default connect( ( state ) => {
 	return {
 		camp,
 		year,
-		sessions: getSessions( state, camp, year )
+		sessions: getSessions( state, camp, year ),
 	};
 } )( Camp );

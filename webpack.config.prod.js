@@ -1,44 +1,46 @@
 /**
  * External dependencies
  */
-var webpack = require( 'webpack' ),
-	merge = require( 'lodash/merge' ),
-	ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+
+const webpack = require( 'webpack' );
+const merge = require( 'lodash/merge' );
+const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
 /**
  * Internal dependencies
  */
-var common = require( './webpack.config.common' );
+
+const common = require( './webpack.config.common' );
 
 module.exports = merge( common, {
 	output: {
-		filename: 'app-[hash].min.js'
+		filename: 'app-[hash].min.js',
 	},
 	module: {
 		loaders: common.module.loaders.concat( [
 			{
 				test: /\.scss$/,
-				loaders: ExtractTextPlugin.extract( 'raw-loader!postcss-loader!sass-loader' )
-			}
-		] )
+				loaders: ExtractTextPlugin.extract( 'raw-loader!postcss-loader!sass-loader' ),
+			},
+		] ),
 	},
 	plugins: common.plugins.concat( [
 		new webpack.LoaderOptionsPlugin( {
 			minimize: true,
-			debug: false
+			debug: false,
 		} ),
 		new webpack.optimize.UglifyJsPlugin( {
 			compress: {
-				warnings: false
+				warnings: false,
 			},
 			output: {
-				comments: false
+				comments: false,
 			},
-			sourceMap: false
+			sourceMap: false,
 		} ),
 		new ExtractTextPlugin( {
 			filename: 'app-[hash].min.css',
-			allChunks: true
-		} )
-	] )
+			allChunks: true,
+		} ),
+	] ),
 } );

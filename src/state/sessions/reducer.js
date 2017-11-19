@@ -11,7 +11,7 @@ import {
 	SESSIONS_RECEIVE,
 	SESSIONS_REQUEST,
 	SESSIONS_REQUEST_FAILURE,
-	SESSIONS_REQUEST_SUCCESS
+	SESSIONS_REQUEST_SUCCESS,
 } from 'state/action-types';
 
 function requesting( state = {}, action ) {
@@ -25,8 +25,8 @@ function requesting( state = {}, action ) {
 				...state,
 				[ camp ]: {
 					...state[ camp ],
-					[ year ]: SESSIONS_REQUEST === type
-				}
+					[ year ]: SESSIONS_REQUEST === type,
+				},
 			};
 	}
 
@@ -43,8 +43,8 @@ function items( state = {}, action ) {
 					...state[ camp ],
 					[ year ]: keyBy( map( sessions, ( session ) => {
 						return pick( session, 'title', 'slug' );
-					} ), 'slug' )
-				}
+					} ), 'slug' ),
+				},
 			};
 	}
 
@@ -53,5 +53,5 @@ function items( state = {}, action ) {
 
 export default combineReducers( {
 	requesting,
-	items
+	items,
 } );

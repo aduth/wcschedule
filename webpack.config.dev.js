@@ -1,18 +1,20 @@
 /**
  * External dependencies
  */
-var webpack = require( 'webpack' ),
-	merge = require( 'lodash/merge' );
+
+const webpack = require( 'webpack' );
+const merge = require( 'lodash/merge' );
 
 /**
  * Internal dependencies
  */
-var common = require( './webpack.config.common' );
+
+const common = require( './webpack.config.common' );
 
 module.exports = merge( common, {
 	entry: [
 		'webpack-dev-server/client?/',
-		'webpack/hot/only-dev-server'
+		'webpack/hot/only-dev-server',
 	].concat( common.entry ),
 	module: {
 		loaders: common.module.loaders.concat( [
@@ -22,14 +24,14 @@ module.exports = merge( common, {
 					'style-loader',
 					'css-loader',
 					'postcss-loader',
-					'sass-loader'
-				]
-			}
-		] )
+					'sass-loader',
+				],
+			},
+		] ),
 	},
 	plugins: common.plugins.concat( [
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
 	] ),
 	cache: true,
 	devtool: 'source-map',

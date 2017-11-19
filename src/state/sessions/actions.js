@@ -6,7 +6,7 @@ import {
 	SESSIONS_RECEIVE,
 	SESSIONS_REQUEST,
 	SESSIONS_REQUEST_FAILURE,
-	SESSIONS_REQUEST_SUCCESS
+	SESSIONS_REQUEST_SUCCESS,
 } from 'state/action-types';
 
 export function receiveSessions( camp, year, sessions ) {
@@ -14,7 +14,7 @@ export function receiveSessions( camp, year, sessions ) {
 		type: SESSIONS_RECEIVE,
 		camp,
 		year,
-		sessions
+		sessions,
 	};
 }
 
@@ -23,7 +23,7 @@ export function requestSessions( camp, year ) {
 		dispatch( {
 			type: SESSIONS_REQUEST,
 			camp,
-			year
+			year,
 		} );
 		const apiRoot = getCampApiRoot( camp, year );
 
@@ -34,12 +34,12 @@ export function requestSessions( camp, year ) {
 			dispatch( {
 				type: SESSIONS_REQUEST_SUCCESS,
 				camp,
-				year
+				year,
 			} );
 		} catch ( error ) {
 			dispatch( {
 				type: SESSIONS_REQUEST_FAILURE,
-				error
+				error,
 			} );
 		}
 	};

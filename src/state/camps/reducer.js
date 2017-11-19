@@ -11,7 +11,7 @@ import {
 	CAMPS_RECEIVE,
 	CAMPS_REQUEST,
 	CAMPS_REQUEST_FAILURE,
-	CAMPS_REQUEST_SUCCESS
+	CAMPS_REQUEST_SUCCESS,
 } from 'state/action-types';
 
 function requesting( state = false, action ) {
@@ -30,7 +30,7 @@ function items( state = {}, action ) {
 		case CAMPS_RECEIVE:
 			return {
 				...state,
-				...keyBy( action.camps, 'slug' )
+				...keyBy( action.camps, 'slug' ),
 			};
 	}
 
@@ -39,5 +39,5 @@ function items( state = {}, action ) {
 
 export default combineReducers( {
 	requesting,
-	items
+	items,
 } );

@@ -25,7 +25,7 @@ class QueryCamps extends Component {
 export default connect(
 	( state ) => {
 		return {
-			isRequesting: isRequestingCamps( state )
+			isRequesting: isRequestingCamps( state ),
 		};
 	},
 	{ requestCamps }

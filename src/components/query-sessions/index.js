@@ -37,7 +37,7 @@ class QuerySessions extends Component {
 export default connect(
 	( state, { camp, year } ) => {
 		return {
-			isRequesting: isRequestingSessions( state, camp, year )
+			isRequesting: isRequestingSessions( state, camp, year ),
 		};
 	},
 	{ requestSessions }

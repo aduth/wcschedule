@@ -19,8 +19,8 @@ function items( state = {}, action ) {
 					...state[ camp ],
 					[ year ]: keyBy( map( sessions, ( session ) => {
 						return pick( session.speaker, 'title', 'slug' );
-					} ), 'slug' )
-				}
+					} ), 'slug' ),
+				},
 			};
 	}
 
@@ -28,5 +28,5 @@ function items( state = {}, action ) {
 }
 
 export default combineReducers( {
-	items
+	items,
 } );

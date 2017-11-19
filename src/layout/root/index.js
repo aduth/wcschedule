@@ -20,6 +20,6 @@ function Root( { Route, store } ) {
 
 export default connect( ( state ) => {
 	return {
-		Route: getRouteHandler( state )
+		Route: getRouteHandler( state ),
 	};
 } )( Root );
