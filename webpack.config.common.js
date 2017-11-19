@@ -2,8 +2,7 @@
  * External dependencies
  */
 var webpack = require( 'webpack' ),
-	HtmlWebpackPlugin = require( 'html-webpack-plugin' ),
-	autoprefixer = require( 'autoprefixer' );
+	HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 
 module.exports = {
 	entry: [
@@ -17,7 +16,6 @@ module.exports = {
 	},
 	resolve: {
 		modules: [ 'node_modules', 'src' ],
-		extensions: [ '', '.js' ],
 		alias: {
 			'redux-routing': 'redux-routing/src'
 		}
@@ -39,9 +37,6 @@ module.exports = {
 				'</html>'
 		} )
 	],
-	postcss: function() {
-		return [ autoprefixer ];
-	},
 	module: {
 		loaders: [
 			{
@@ -50,7 +45,7 @@ module.exports = {
 					__dirname + '/src',
 					__dirname + '/node_modules/redux-routing'
 				],
-				loader: 'babel',
+				loader: 'babel-loader',
 				query: {
 					cacheDirectory: true
 				}

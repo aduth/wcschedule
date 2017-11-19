@@ -18,7 +18,7 @@ module.exports = merge( common, {
 		loaders: common.module.loaders.concat( [
 			{
 				test: /\.scss$/,
-				loaders: ExtractTextPlugin.extract( 'raw!postcss!sass' )
+				loaders: ExtractTextPlugin.extract( 'raw-loader!postcss-loader!sass-loader' )
 			}
 		] )
 	},

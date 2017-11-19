@@ -18,13 +18,18 @@ module.exports = merge( common, {
 		loaders: common.module.loaders.concat( [
 			{
 				test: /\.scss$/,
-				loaders: [ 'style', 'css', 'postcss', 'sass' ]
+				loaders: [
+					'style-loader',
+					'css-loader',
+					'postcss-loader',
+					'sass-loader'
+				]
 			}
 		] )
 	},
 	plugins: common.plugins.concat( [
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin()
 	] ),
 	cache: true,
 	devtool: 'source-map',
