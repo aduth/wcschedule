@@ -4,11 +4,10 @@
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf public",
-    "build:dev": "webpack --config webpack.config.dev",
     "prebuild:prod": "npm run clean",
-    "build:prod": "NODE_ENV=production webpack --config webpack.config.prod",
+    "build:prod": "NODE_ENV=production webpack",
     "lint": "eslint .",
-    "dev": "webpack-dev-server --config webpack.config.dev",
+    "dev": "webpack-dev-server",
     "test": "npm run lint"
   },
   "author": {
