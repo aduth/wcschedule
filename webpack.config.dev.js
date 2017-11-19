@@ -29,6 +29,15 @@ module.exports = merge( common, {
 			},
 		] ),
 	},
+	devServer: {
+		historyApiFallback: true,
+		hot: true,
+		port: 3000,
+		publicPath: common.output.publicPath,
+		stats: {
+			colors: true,
+		},
+	},
 	plugins: common.plugins.concat( [
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin(),

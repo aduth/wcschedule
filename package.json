@@ -8,7 +8,7 @@
     "prebuild:prod": "npm run clean",
     "build:prod": "NODE_ENV=production webpack --config webpack.config.prod",
     "lint": "eslint .",
-    "dev": "node webpack.server",
+    "dev": "webpack-dev-server --config webpack.config.dev",
     "test": "npm run lint"
   },
   "author": {
